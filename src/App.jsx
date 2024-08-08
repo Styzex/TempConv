@@ -28,6 +28,21 @@ function App() {
     setOutput(result.toFixed(2)) // Set the result to output state
   }
 
+  const OutputFunc = () => {
+    let cOf
+    if (Units === "C to F") {
+      cOf = "°F"
+    } else {
+      cOf = "°C"
+    }
+    return (
+      <p>
+        {output}
+        {cOf}
+      </p>
+    )
+  }
+
   const ConvertButton = () => {
     return <button onMouseDown={Convert}>Convert</button>
   }
@@ -38,9 +53,7 @@ function App() {
         <h1>Temperautre Converter</h1>
         <input type="number" id="uInput" />
         <ConvertButton />
-        <p>
-          {output} {Units}
-        </p>
+        <OutputFunc />
         <Switch />
       </div>
     </>
